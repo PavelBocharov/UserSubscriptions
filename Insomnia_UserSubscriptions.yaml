@@ -1,0 +1,251 @@
+type: collection.insomnia.rest/5.0
+name: Scratch Pad
+meta:
+  id: wrk_scratchpad
+  created: 1708792493520
+  modified: 1708792493520
+collection:
+  - name: UserSubscriptions
+    meta:
+      id: fld_45ec08c2b0794a99bdd3cf5b0ddbc9d0
+      created: 1746727811752
+      modified: 1746727811752
+      sortKey: -1746727811752
+    children:
+      - name: Users
+        meta:
+          id: fld_db085b1b9be645ef9e0c3553c0902e17
+          created: 1746703011686
+          modified: 1746727816404
+          sortKey: -1746727815092
+        children:
+          - url: localhost:8080/users
+            name: GetAll
+            meta:
+              id: req_c8e3dc3d90c743abb2a4122fd62a8735
+              created: 1746703099553
+              modified: 1746724399106
+              isPrivate: false
+              sortKey: -1746703099553
+            method: GET
+            headers:
+              - name: User-Agent
+                value: insomnia/11.1.0
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: localhost:8080/users/2
+            name: GetById
+            meta:
+              id: req_79c8fc73e2434e8694a7d6b431ee30e3
+              created: 1746703134066
+              modified: 1746703138062
+              isPrivate: false
+              sortKey: -1746703099503
+            method: GET
+            headers:
+              - name: User-Agent
+                value: insomnia/11.1.0
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: localhost:8080/users
+            name: Create
+            meta:
+              id: req_6ae1d7c2f3a04f5e891ca00d090356fc
+              created: 1746703142616
+              modified: 1746703291641
+              isPrivate: false
+              sortKey: -1746703142616
+            method: POST
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                	"login": "login_{% faker 'randomUUID' %}",
+                	"name": "name_{% faker 'randomUUID' %}"
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+              - name: User-Agent
+                value: insomnia/11.1.0
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: localhost:8080/users
+            name: Update
+            meta:
+              id: req_bc7181a637ff4170be548aebab0e680d
+              created: 1746703315250
+              modified: 1746708166033
+              isPrivate: false
+              sortKey: -1746703121084.5
+            method: PUT
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                	"id": "1",
+                	"login": "login_{% faker 'randomUUID' %}",
+                	"name": "name_{% faker 'randomUUID' %}"
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+              - name: User-Agent
+                value: insomnia/11.1.0
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: localhost:8080/users/2
+            name: DeleteById
+            meta:
+              id: req_11c01150e9594ff79af3f34314f92a88
+              created: 1746703405425
+              modified: 1746708180848
+              isPrivate: false
+              sortKey: -1746703099453
+            method: DELETE
+            headers:
+              - name: User-Agent
+                value: insomnia/11.1.0
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+      - name: Subscriptions
+        meta:
+          id: fld_c5ed169f8fca4475912e51b8b8c1b2b0
+          created: 1746703503849
+          modified: 1746727815027
+          sortKey: -1746727814992
+        children:
+          - url: localhost:8080/users/2/subscriptions
+            name: GetById
+            meta:
+              id: req_df86a17a5fd84a7588097123e1321f67
+              created: 1746703527740
+              modified: 1746722587751
+              isPrivate: false
+              sortKey: -1746703530385
+            method: GET
+            headers:
+              - name: User-Agent
+                value: insomnia/11.1.0
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: localhost:8080/users/9/subscriptions
+            name: Create
+            meta:
+              id: req_b1e72e5c36594838bbd98d803c81a279
+              created: 1746703556085
+              modified: 1746725633965
+              isPrivate: false
+              sortKey: -1746703336500.5
+            method: POST
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                	"title" : "YouTube_2"
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+              - name: User-Agent
+                value: insomnia/11.1.0
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: localhost:8080/users/1/subscriptions/1
+            name: Delete
+            meta:
+              id: req_d84259f8b0e44b4185496e75caa52515
+              created: 1746703566258
+              modified: 1746708067382
+              isPrivate: false
+              sortKey: -1746703239558.25
+            method: DELETE
+            headers:
+              - name: User-Agent
+                value: insomnia/11.1.0
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: localhost:8080/subscriptions/top
+            name: Top3
+            meta:
+              id: req_05d9a9aca0244e1892f18abd96e64c3e
+              created: 1746710337987
+              modified: 1746710353833
+              isPrivate: false
+              sortKey: -1746703433442.75
+            method: GET
+            headers:
+              - name: User-Agent
+                value: insomnia/11.1.0
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_99d30891da4bdcebc63947a8fc17f076de878684
+    created: 1708792532790
+    modified: 1716972345029
+environments:
+  name: Base Environment
+  meta:
+    id: env_99d30891da4bdcebc63947a8fc17f076de878684
+    created: 1708792532786
+    modified: 1708793050634
+    isPrivate: false
+  data:
+    adminId: 323009261
+    chatId: -1001857072975
