@@ -40,8 +40,8 @@ public class Users implements Serializable {
     @ManyToMany
     @JoinTable(
             name = "users_subs_join",
-            joinColumns = @JoinColumn(name = "subs_id"),
-            inverseJoinColumns = @JoinColumn(name = "users_id"))
+            joinColumns = @JoinColumn(name = "users_id"),
+            inverseJoinColumns = @JoinColumn(name = "subs_id"))
     private List<Subscriptions> subscriptions;
 
 }

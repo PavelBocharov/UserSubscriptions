@@ -8,13 +8,23 @@ services:
 #      dockerfile: Dockerfile
     environment:
       - APP_PROFILE=prod
+      - DB_URL=jdbc:postgresql://pgsql:5432/postgres
+      - DB_USR=postgres
+      - DB_PWD=postgres
     tty: true
     restart: always
+    depends_on:
+      - pgsql
     networks:
       - bridge
       - pgnet
     ports:
       - '8080:8080'
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:8080/actuator/health" ]
+      interval: 10s
+      timeout: 10s
+      retries: 5
 
   pgsql:
     image: postgres:14
@@ -27,6 +37,11 @@ services:
       - pgnet
     volumes:
       - G:/Cache/pg/db:/var/lib/postgresql/data
+    healthcheck:
+      test: [ "CMD-SHELL", "sh -c 'pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}'" ]
+      interval: 10s
+      timeout: 3s
+      retries: 3
 
 networks:
   bridge:

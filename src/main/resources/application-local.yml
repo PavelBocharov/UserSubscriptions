@@ -1,14 +1,13 @@
 spring:
   datasource:
-    url: jdbc:h2:file:./target/users_subscriptions.db;DB_CLOSE_DELAY=-1
+    url: jdbc:sqlite:G:/Cache/test.db
     username: pwd
     password: pwd
   jpa:
-    database: H2
     show-sql: true
     hibernate:
       ddl-auto: update
       format_sql: false
       naming:
         implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyJpaCompliantImpl
-    database-platform: org.hibernate.dialect.H2Dialect
+    database-platform: org.hibernate.community.dialect.SQLiteDialect

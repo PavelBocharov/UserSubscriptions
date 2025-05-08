@@ -3,7 +3,10 @@
 ```bash
 mvn clean install -U
 ```
-## Start local JAR (H2 database)
+## Start local JAR (SQLite database)
+```bash
+java -jar ./target/UserSubscriptions*.jar
+```
 ```bash
 java -jar -Dspring.profiles.active=local ./target/UserSubscriptions*.jar
 ```

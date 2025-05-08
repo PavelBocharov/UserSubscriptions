@@ -16,16 +16,17 @@ public interface SubscriptionRepository extends JpaRepository<Subscriptions, Lon
 
     @Query(value = """
             select
-                *
+                subs.*
             from subscriptions subs
             join (
-                select
-                     usj.subs_id as sid,
-                     sum(usj.subs_id) as sm
-                from users_subs_join usj
-                group by usj.subs_id
-                order by sm desc
+            	select
+            		 usj.subs_id as sid,
+            		 count(usj.subs_id) as cnt
+            	from users_subs_join usj
+            	group by usj.subs_id
+            	order by cnt desc
             ) ids on subs.id = ids.sid
+            limit 3
             """,
             nativeQuery = true)
     List<Subscriptions> getTop3Subscription();
