@@ -5,6 +5,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
@@ -12,8 +14,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.annotations.LazyCollection;
-import org.hibernate.annotations.LazyCollectionOption;
 
 import java.io.Serializable;
 import java.util.List;
@@ -37,8 +37,11 @@ public class Users implements Serializable {
     @Column(name = "name", nullable = false)
     private String name;
 
-    @ManyToMany(mappedBy = "userList")
-//    @LazyCollection(LazyCollectionOption.FALSE)
-    private List<Subscriptions> cardList;
+    @ManyToMany
+    @JoinTable(
+            name = "users_subs_join",
+            joinColumns = @JoinColumn(name = "subs_id"),
+            inverseJoinColumns = @JoinColumn(name = "users_id"))
+    private List<Subscriptions> subscriptions;
 
 }

@@ -1,0 +1,10 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Build &amp; Run" type="Application" factoryName="Application">
+    <option name="MAIN_CLASS_NAME" value="com.mar.Main" />
+    <module name="UserSubscriptions" />
+    <method v="2">
+      <option name="RunConfigurationTask" enabled="true" run_configuration_name="Build" run_configuration_type="MavenRunConfiguration" />
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

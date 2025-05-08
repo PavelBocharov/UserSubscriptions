@@ -28,9 +28,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UsersDto create(UsersDto dto) {
-        return mapper.toDto(
-                repository.save(mapper.toEntity(dto))
-        );
+        return mapper.toDto(repository.save(mapper.toEntity(dto)));
     }
 
     @Override
@@ -53,4 +51,5 @@ public class UserServiceImpl implements UserService {
     public void remove(Long id) {
         repository.deleteById(id);
     }
+
 }

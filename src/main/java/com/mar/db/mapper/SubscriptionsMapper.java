@@ -9,6 +9,7 @@ import org.mapstruct.MappingConstants;
 public interface SubscriptionsMapper {
 
     SubscriptionsDto toDto(Subscriptions subscriptions);
+
     Subscriptions toEntity(SubscriptionsDto dto);
 
 }

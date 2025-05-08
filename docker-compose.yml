@@ -1,0 +1,35 @@
+version: '3'
+
+services:
+  users_subs:
+    image: marolok/users_subs:1.0.0
+#    build:
+#      context: .
+#      dockerfile: Dockerfile
+    environment:
+      - APP_PROFILE=prod
+    tty: true
+    restart: always
+    networks:
+      - bridge
+      - pgnet
+    ports:
+      - '8080:8080'
+
+  pgsql:
+    image: postgres:14
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=postgres
+    networks:
+      - pgnet
+    volumes:
+      - G:/Cache/pg/db:/var/lib/postgresql/data
+
+networks:
+  bridge:
+    driver: bridge
+  pgnet:
+    external: false
